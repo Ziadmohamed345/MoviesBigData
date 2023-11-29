@@ -1,0 +1,13 @@
+First Query Indexing:
+db.moviesColl.createIndex({ name:1 })
+name_1
+db.moviesColl.find({ name: "Ice Airport Alaska" })
+
+Second Query Logical Operations:
+db.moviesColl.find({ $or: [{genre: "Documantry"}, {type: "Movie"}]})
+
+Third Query Count number of records in the document:
+db..moviesColl.aggregate([ { $count: "document_count" }] )
+
+Fourth Query concatenates the value of name and description value:
+db.moviesColl.aggregate([ { $project: { concatenated: { $concat: ["$name", " - ", "$description"] } } }] )
